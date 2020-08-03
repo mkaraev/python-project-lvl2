@@ -2,10 +2,11 @@ import json
 
 
 def load_file(path) -> dict:
-    return json.load(path)
+    with open(path) as f:
+        return json.load(f)
 
 
 if __name__ == '__main__':
-    with open("../data/before.json") as f:
+    with open("/gendiff/tests/fixtures/before.json") as f:
         print(f)
         print(load_file(f))
