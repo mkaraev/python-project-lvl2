@@ -3,7 +3,7 @@ from gendiff.constants import (NESTED, UNCHANGED, REMOVED, ADDED, CHANGED)
 operator = {
     ADDED: "{ws}+ {k}: {v}\n",
     REMOVED: "{ws}- {k}: {v}\n",
-    UNCHANGED: "",
+    UNCHANGED: "{ws}  {k}: {v}\n",
     CHANGED: "{ws}- {k}: {v1}\n{ws}+ {k}: {v2}\n",
     NESTED: "  {ws}{k}: {op_br}\n{v}{cl_br}\n"
 }
@@ -31,19 +31,15 @@ def do_rendering(diff: dict, indent=1):
     ws = ''.rjust(indent)
     for key, value in diff.items():
         state = value[0]
-
-        if state == UNCHANGED:
-            continue
-        elif state == NESTED:
+        if state == NESTED:
             rend_line = do_rendering(value[1], indent + 4)
-            if rend_line != '':
-                rend_line = operator[state].format(
-                    ws=ws,
-                    k=key,
-                    op_br='{',
-                    v=rend_line,
-                    cl_br='}'.rjust(indent + 3)
-                )
+            rend_line = operator[state].format(
+                ws=ws,
+                k=key,
+                op_br='{',
+                v=rend_line,
+                cl_br='}'.rjust(indent + 3)
+            )
 
         elif state == CHANGED:
             before = render_value(value[1], indent)

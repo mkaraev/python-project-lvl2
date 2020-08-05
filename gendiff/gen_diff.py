@@ -1,5 +1,6 @@
 from gendiff import io
 from gendiff.constants import (ADDED, CHANGED, NESTED, REMOVED, UNCHANGED)
+from collections import OrderedDict
 
 
 def generate_difference_deep(before_dict: dict, after_dict: dict) -> dict:
@@ -30,7 +31,7 @@ def generate_difference_deep(before_dict: dict, after_dict: dict) -> dict:
         else:
             diff[key] = (CHANGED, old_value, new_value)
 
-    return diff
+    return OrderedDict(sorted(diff.items(), key=lambda k: k))
 
 
 def generate_diff(

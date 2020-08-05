@@ -1,0 +1,1 @@
+{"common": [5, {"setting1": [2, "Value 1"], "setting2": [4, "200"], "setting3": [2, true], "setting4": [3, "blah blah"], "setting5": [3, {"key5": "value5"}], "setting6": [4, {"key": "value"}]}], "group1": [5, {"baz": [1, "bas", "bars"], "foo": [2, "bar"]}], "group2": [4, {"abc": "12345"}], "group3": [3, {"fee": "100500"}]}
