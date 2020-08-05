@@ -9,4 +9,8 @@ Supported extentions:
 
 ## Install
 ```pip install -i https://test.pypi.org/simple/ gendiff```
+## Usage
+``` gendiff /path/to/file1 /path/to/file2```
+
 ## Demo
+https://asciinema.org/a/RbkzuqnClQswoXhF5DfHV2yZt
