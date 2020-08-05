@@ -1,4 +1,10 @@
-from gendiff.constants import *
+from gendiff.constants import (
+    UNCHANGED,
+    CHANGED,
+    ADDED,
+    REMOVED,
+    NESTED
+)
 from gendiff import io
 from gendiff.gen_diff import generate_difference_deep
 

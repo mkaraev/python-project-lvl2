@@ -12,7 +12,11 @@ def main():
     parser = argparse.ArgumentParser(description="Generate diff")
     parser.add_argument("before")
     parser.add_argument("after")
-    parser.add_argument("-f", "--format", dest="format", help="set format of output", default="nested")
+    parser.add_argument("-f", "--format",
+                        dest="format",
+                        help="set format of output",
+                        default="nested"
+                        )
     args = parser.parse_args()
     print(
         generate_diff(args.before, args.after, renderer_map[args.format])
